@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="DemoUsers" xmlns="http://ibatis.apache.org/mapping"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="DemoUsers" type="Batis.Models.DemoUsers" />
+  </alias>
+  <statements>
+    <insert id="Insert" parameterClass="DemoUsers">
+      insert into DemoUsers(Name,Password) values(#Name#,#Password#)
+    </insert>
+    <delete id="Delete" parameterClass="int">
+      delete from DemoUsers where Id=#Id#
+    </delete>
+    <update id="Update" parameterClass="DemoUsers">
+      update DemoUsers set Name=#Name#,Password =#Password# where Id=#Id#
+    </update>
+    <select id="Select_all" resultClass="DemoUsers">
+      select * from DemoUsers
+    </select>
+    <select id="Select" parameterClass="int" resultClass="DemoUsers">
+      select * from DemoUsers where Id=#Id#
+    </select>
+  </statements>
+</sqlMap>
